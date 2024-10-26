@@ -12,7 +12,7 @@ print("y中心帮你开启了反挂机")
 		   wait(1)
 		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 		end)
-local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/SePpsSPZ'))()
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/impulse101qqu/impulse101qqu/refs/heads/main/y%E4%B8%AD%E5%BF%83.lua"))()
 local Window = OrionLib:MakeWindow({Name = "y中心", HidePremium = false, SaveConfig = true,IntroText = "欢迎使用y中心", ConfigFolder = "欢迎使用y偏中心"})
 local about = Window:MakeTab({
     Name = "你的信息",
