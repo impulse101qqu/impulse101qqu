@@ -1,76 +1,101 @@
 local ScreenGui = Instance.new("ScreenGui")
-local UI = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+
 local Frame = Instance.new("Frame")
-local Key = Instance.new("TextBox")
-local Start = Instance.new("TextButton")
-
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-UI.Name = "y卡密系统"
-UI.Parent = ScreenGui
-UI.Active = true
-UI.BackgroundColor3 = Color3.new(0, 0, 0)
-UI.BackgroundTransparency = 0
-UI.BorderSizePixel = 3
-UI.Position = UDim2.new(0.5, -150, 0.5, -67)
-UI.Size = UDim2.new(0, 260, 0, 250)
-UI.Draggable = true
-
-Title.Name = "Title"
-Title.Parent = UI
-Title.BackgroundColor3 = Color3.new(68, 68, 68)
-Title.BackgroundTransparency = 1
-Title.BorderSizePixel = 2
-Title.Position = UDim2.new(0, 0, 0.02, 0)
-Title.Size = UDim2.new(1, 0, 0, 50)
-Title.Font = Enum.Font.SourceSans
-Title.Text = "密钥系统"
-Title.TextColor3 = Color3.new(0, 0, 255)
-Title.TextScaled = true
-Title.TextSize = 14
-Title.TextWrapped = true
-
-Frame.Parent = Title
-Frame.BackgroundColor3 = Color3.new(0, 0, 255)
+Frame.Size = UDim2.new(0, 400, 0, 300)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.07, 0, 0.9, 0)
-Frame.Size = UDim2.new(0.85, 0, 0, 6)
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
 
-Key.Name = "Key"
-Key.Parent = UI
-Key.BackgroundColor3 = Color3.new(1, 1, 1)
-Key.BorderSizePixel = 0
-Key.Position = UDim2.new(0.1, 0, 0.31, 0)
-Key.Size = UDim2.new(0.8, 0, 0, 50)
-Key.Font = Enum.Font.SourceSans
-Key.PlaceholderText = "输入钥密"
-Key.Text = ""
-Key.TextColor3 = Color3.new(0, 0, 0)
-Key.TextScaled = true
-Key.TextSize = 14
-Key.TextWrapped = true
+local FrameCorner = Instance.new("UICorner")
+FrameCorner.CornerRadius = UDim.new(0, 10)
+FrameCorner.Parent = Frame
 
-Start.Name = "Start"
-Start.Parent = UI
-Start.BackgroundColor3 = Color3.new(0, 0, 255)
-Start.BackgroundTransparency = 0
-Start.BorderSizePixel = 2
-Start.Position = UDim2.new(0.25, 0, 0.65, 0)
-Start.Size = UDim2.new(0.5, 0, 0, 45)
-Start.Font = Enum.Font.Gotham
-Start.Text = "检查卡密"
-Start.TextColor3 = Color3.new(0, 0, 0)
-Start.TextScaled = true
-Start.TextSize = 10
-Start.TextWrapped = true
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 40, 0, 40)
+Close.Position = UDim2.new(1, -40, 0, 0)
+Close.BackgroundTransparency = 1
+Close.Text = "×"
+Close.TextScaled = true
+Close.TextColor3 = Color3.fromRGB(150, 150, 150)
+Close.Parent = Frame
+Close.MouseButton1Click:Connect(function()
+   ScreenGui:Destroy()
+end)
 
-Start.MouseButton1Click:Connect(function()
-    if Key.Text == "884776077" then
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0.05, 0)
+Title.Text = "龙脚本卡密系统"
+Title.TextSize = 18
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Parent = Frame
+
+local Instructions = Instance.new("TextLabel")
+Instructions.Size = UDim2.new(1, 0, 0, 30)
+Instructions.Position = UDim2.new(0, 0, 0.2, 0)
+Instructions.Text = "114514"
+Instructions.TextSize = 13
+Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
+Instructions.BackgroundTransparency = 1
+Instructions.Parent = Frame
+
+local TextBox = Instance.new("TextBox")
+TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
+TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextBox.PlaceholderText = "输入卡密"
+TextBox.Text = ""
+TextBox.TextSize = 18
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Parent = Frame
+
+local TextBoxCorner = Instance.new("UICorner")
+TextBoxCorner.CornerRadius = UDim.new(0, 5)
+TextBoxCorner.Parent = TextBox
+
+local GetKey = Instance.new("TextButton")
+GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
+GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+GetKey.Text = "获取卡密"
+GetKey.TextSize = 18
+GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+GetKey.Parent = Frame
+
+local GetKeyCorner = Instance.new("UICorner")
+GetKeyCorner.CornerRadius = UDim.new(0, 5)
+GetKeyCorner.Parent = GetKey
+
+local CheckKey = Instance.new("TextButton")
+CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
+CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+CheckKey.Text = "点我"
+CheckKey.TextSize = 18
+CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+CheckKey.Parent = Frame
+
+local CheckKeyCorner = Instance.new("UICorner")
+CheckKeyCorner.CornerRadius = UDim.new(0, 5)
+CheckKeyCorner.Parent = CheckKey
+
+GetKey.MouseButton1Click:Connect(function()
+   game.StarterGui:SetCore("SendNotification", {Title = "大聪明",Duration = 5,Text = "那么大个点我都不会看是吧"})
+end)
+
+
+       Start.MouseButton1Click:Connect(function()
+    if Key.Text == "114514" then
         ScreenGui:Destroy()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/nahida-cn/Roblox/main/long"))()
     else
-        game.Players.LocalPlayer:Kick("还想玩龙脚本，吃屎吧")
+        game.Players.LocalPlayer:Kick("还想玩龙脚本")
     end
 end)
